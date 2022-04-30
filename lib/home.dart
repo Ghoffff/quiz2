@@ -27,13 +27,13 @@ class _HomeState extends State<Home> {
       _scoreTracker.add(
         answerScore
             ? Icon(
-                Icons.check_circle,
-                color: Color(0xFFAB47BC),
-              )
+          Icons.check_circle,
+          color: Color(0xFFAB47BC),
+        )
             : Icon(
-                Icons.clear,
-                color: Color(0xFFAB47BC),
-              ),
+          Icons.clear,
+          color: Color(0xFFAB47BC),
+        ),
       );
       //when the quiz ends
       if (_questionIndex + 1 == _questions.length) {
@@ -71,12 +71,12 @@ class _HomeState extends State<Home> {
         title: Text(
           'Quiz',
           style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,
-              fontSize: 20,),
+            fontSize: 20,),
 
         ),
         centerTitle: true,
         backgroundColor: Color(0xFF6F35A5),
-    ),
+      ),
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
@@ -90,6 +90,7 @@ class _HomeState extends State<Home> {
                 if (_scoreTracker.length > 0) ..._scoreTracker
               ],
             ),
+
             (_questions[_questionIndex]['question']=='What chord is this ?')?
             Container(
               width: double.infinity,
@@ -101,24 +102,54 @@ class _HomeState extends State<Home> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Center(
-              child:Column(
-                children: [Text(
-                  _questions[_questionIndex]['question'],
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 19.0,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                  SizedBox(height: 10,),
+                  child:Column(
+                    children: [Text(
+                      _questions[_questionIndex]['question'],
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 19.0,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                      SizedBox(height: 10,),
 
-                  SizedBox(height:200,width: 200,child: Image.asset("assets/images/EM.png"),)
-                ],
-              )
+                      SizedBox(height:200,width: 200,child: Image.asset("assets/images/Question2.png"),)
+                    ],
+                  )
 
-                  ),
-                  ):Container(
+              ),
+            ):
+            (_questions[_questionIndex]['question']=='This chord is ?')?
+            Container(
+              width: double.infinity,
+              height: 280.0,
+              margin: EdgeInsets.only(bottom: 10.0, left: 30.0, right: 30.0),
+              padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0),
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Center(
+                  child:Column(
+                    children: [Text(
+                      _questions[_questionIndex]['question'],
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 19.0,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                      SizedBox(height: 10,),
+
+                      SizedBox(height:200,width: 200,child: Image.asset("assets/images/Question5.png"),)
+                    ],
+                  )
+
+              ),
+            ):
+            Container(
                 width: double.infinity,
                 height: 130.0,
                 margin: EdgeInsets.only(bottom: 10.0, left: 30.0, right: 30.0),
@@ -141,19 +172,19 @@ class _HomeState extends State<Home> {
                       ],
                     ))
 
-                ),
+            ),
 
 
 
-                  ...(_questions[_questionIndex]['answers']
-                    as List<Map<String, Object>>)
+            ...(_questions[_questionIndex]['answers']
+            as List<Map<String, Object>>)
                 .map(
-              (answer) => Answer(
+                  (answer) => Answer(
                 answerText: answer['answerText'],
                 answerColor: answerWasSelected
                     ? answer['score']
-                        ? Color(0xFFE1BEE7)
-                        : Color(0xFFAB47BC)
+                    ? Color(0xFFE1BEE7)
+                    : Color(0xFFAB47BC)
                     : null,
                 answerTap: () {
                   // if answer was already selected then nothing happens onTap
@@ -226,46 +257,44 @@ class _HomeState extends State<Home> {
 
 final _questions = const [
   {
-    'question': 'How many strings are on a guitar ?',
+    'question': 'What string should be open in the A minor chord ?',
     'answers': [
-      {'answerText': '6', 'score': true},
-      {'answerText': '8', 'score': false},
-      {'answerText': '5', 'score': false},
-    ],
-  },
-  {
-    'question':
-        'What are the names of the guitar strings in standard tuning ?',
-        'answers': [
-      {'answerText': 'DADGAD', 'score': false},
-      {'answerText': 'EGDABE', 'score': false},
-      {'answerText': 'EADGBE', 'score': true},
-    ],
-  },
-  {
-    'question': 'What is the position of the A string ?',
-    'answers': [
-      {'answerText': '2', 'score': false},
-      {'answerText': '4', 'score': false},
-      {'answerText': '5', 'score': true},
+      {'answerText': 'Second string', 'score': false},
+      {'answerText': 'Fifth string', 'score': true},
+      {'answerText': 'Sixth string', 'score': false},
     ],
   },
   {
     'question': 'What chord is this ?',
     'answers': [
-      {'answerText': 'A major chord', 'score': false},
-      {'answerText': 'E minor chord ', 'score': true},
-      {'answerText': 'E major chord', 'score': false},
+      {'answerText': 'A minor chord', 'score': false},
+      {'answerText': 'A major chord', 'score': true},
+      {'answerText': 'D major chord', 'score': false},
     ],
   },
-
+  {
+    'question': 'What string(s) should be muted in a D major chord ?',
+    'answers': [
+      {'answerText': 'First and third strings', 'score': false},
+      {'answerText': 'Second string ', 'score': false},
+      {'answerText': 'First and second strings', 'score': true},
+    ],
+  },
+  {
+    'question': 'How many beats are there in a 4:4 signature bar ?',
+    'answers': [
+      {'answerText': '4 beats', 'score': true},
+      {'answerText': '2 beats', 'score': false},
+      {'answerText': '5 beats', 'score': false},
+    ],
+  },
   {
     'question':
-    'What does the X mean above a string?',
+    'This chord is?',
     'answers': [
-      {'answerText': 'The string should not be played ', 'score': true},
-      {'answerText': 'You play this string open', 'score': false},
-      {'answerText': 'You should press this string', 'score': false},
+      {'answerText': 'E major chord ', 'score': false},
+      {'answerText': 'A minor chord', 'score': false},
+      {'answerText': 'D major chord', 'score': true},
     ],
   },
 ];
