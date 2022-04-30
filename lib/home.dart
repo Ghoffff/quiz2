@@ -290,7 +290,7 @@ final _questions = const [
   },
   {
     'question':
-    'This chord is?',
+    'This chord is ?',
     'answers': [
       {'answerText': 'E major chord ', 'score': false},
       {'answerText': 'A minor chord', 'score': false},
