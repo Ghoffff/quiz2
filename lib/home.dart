@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
             (_questions[_questionIndex]['question']=='This chord is ?')?
             Container(
               width: double.infinity,
-              height: 280.0,
+              height: 220.0,
               margin: EdgeInsets.only(bottom: 10.0, left: 30.0, right: 30.0),
               padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0),
               decoration: BoxDecoration(
@@ -142,8 +142,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                       SizedBox(height: 10,),
-
-                      SizedBox(height:200,width: 200,child: Image.asset("assets/images/Question5.png"),)
+                      SizedBox(height:140,width: 140,child: Image.asset("assets/images/Question5.png"),)
                     ],
                   )
 
@@ -229,7 +228,7 @@ class _HomeState extends State<Home> {
 
             if (endOfQuiz)
               Container(
-                height: 100,
+                height: 80,
                 width: double.infinity,
                 color: Colors.transparent,
                 child: Center(
