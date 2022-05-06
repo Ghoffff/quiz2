@@ -5,12 +5,12 @@ class Answer extends StatelessWidget {
   final Color answerColor;
   final Function answerTap;
 
-  Answer({this.answerText, this.answerColor, this.answerTap});
+  Answer(this.answerText, this.answerColor, this.answerTap);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: answerTap,
+      onTap: answerTap(),
       child: Container(
         padding: EdgeInsets.all(15.0),
         margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
