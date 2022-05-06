@@ -10,7 +10,7 @@ class Answer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: answerTap(),
+      onTap: () => answerTap(),
       child: Container(
         padding: EdgeInsets.all(15.0),
         margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
@@ -30,3 +30,4 @@ class Answer extends StatelessWidget {
     );
   }
 }
+
