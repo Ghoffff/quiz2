@@ -176,19 +176,19 @@ class _HomeState extends State<Home> {
 
 
             ...(_questions[_questionIndex]['answers']
-            as List<Map<String, Object>>)
+                   as List<Map<String, dynamic>>)
                 .map(
                   (answer) => Answer(
-                answerText: answer['answerText'],
-                answerColor: answerWasSelected
-                    ? answer['score']
-                    ? Color(0xFFE1BEE7)
+                    answer['answerText'],
+                    answerWasSelected
+                      ? answer['score']
+                        ? Color(0xFFE1BEE7)
                     : Color(0xFFAB47BC)
-                    : null,
-                answerTap: () {
+                    : Colors.white,
+                () {
                   // if answer was already selected then nothing happens onTap
                   if (answerWasSelected) {
-                    return;
+                    return null;
                   }
                   //answer is being selected
                   _questionAnswered(answer['score']);
@@ -196,7 +196,6 @@ class _HomeState extends State<Home> {
               ),
             ),
             SizedBox(height: 40.0),
-
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 40.0),
@@ -254,7 +253,7 @@ class _HomeState extends State<Home> {
   }
 }
 
-final _questions = const [
+final List<Map<String, dynamic>> _questions = const [
   {
     'question': 'What string should be open in the A minor chord ?',
     'answers': [
